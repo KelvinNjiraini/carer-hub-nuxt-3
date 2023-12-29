@@ -6,10 +6,10 @@ const pages = [
     { path: 'dashboard', icon: 'ant-design:home-outlined', name: 'Dashboard' },
     {
         path: 'my-applications',
-        icon: 'carbon:batch-job',
+        icon: 'ph:files-duotone',
         name: 'My Applications',
     },
-    // { path: 'my-account', icon: 'carbon:account', name: 'My Account' },
+    { path: 'my-account', icon: 'carbon:account', name: 'My Account' },
 ];
 
 watchEffect(() => {
@@ -161,8 +161,8 @@ watchEffect(() => {
                         />
                     </svg>
                 </button>
-                <div class="flex flex-1 justify-between px-4">
-                    <div class="flex flex-1">
+                <div class="flex flex-1 justify-end px-4">
+                    <!-- <div class="flex flex-1">
                         <form class="flex w-full md:ml-0">
                             <label for="search-field" class="sr-only"
                                 >Search</label
@@ -173,7 +173,7 @@ watchEffect(() => {
                                 <div
                                     class="pointer-events-none absolute inset-y-0 left-0 flex items-center"
                                 >
-                                    <!-- Heroicon name: mini/magnifying-glass -->
+                                    
                                     <svg
                                         class="h-5 w-5"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -197,11 +197,12 @@ watchEffect(() => {
                                 />
                             </div>
                         </form>
-                    </div>
-                    <div class="ml-4 flex items-center md:ml-6">
-                        <button
+                    </div> -->
+                    <div class="flex items-center md:ml-6">
+                        <nuxt-link
                             type="button"
                             class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+                            to="/app/carer/portal/my-notifications"
                         >
                             <span class="sr-only">View notifications</span>
                             <!-- Heroicon name: outline/bell -->
@@ -220,7 +221,7 @@ watchEffect(() => {
                                     d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
                                 />
                             </svg>
-                        </button>
+                        </nuxt-link>
 
                         <!-- Profile dropdown -->
                         <div class="relative ml-3">
@@ -242,16 +243,6 @@ watchEffect(() => {
                                 </button>
                             </div>
 
-                            <!--
-                Dropdown menu, show/hide based on menu state.
-  
-                Entering: "transition ease-out duration-100"
-                  From: "transform opacity-0 scale-95"
-                  To: "transform opacity-100 scale-100"
-                Leaving: "transition ease-in duration-75"
-                  From: "transform opacity-100 scale-100"
-                  To: "transform opacity-0 scale-95"
-              -->
                             <div
                                 class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100"
                                 :class="
@@ -268,16 +259,32 @@ watchEffect(() => {
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
                                 <nuxt-link
                                     to="/app/carer/portal/profile"
-                                    class="block px-4 py-2 text-sm text-slate-700 flex items-center space-x-2"
+                                    class="px-4 py-2 text-sm text-slate-700 flex items-center space-x-2"
                                     role="menuitem"
                                     tabindex="-1"
                                     id="user-menu-item-0"
+                                    @click="userMenuOpen = !userMenuOpen"
                                 >
                                     <Icon
                                         name="iconamoon:profile-circle-bold"
                                         class="w-6 h-6"
                                     />
                                     <span>My Profile</span></nuxt-link
+                                >
+
+                                <nuxt-link
+                                    to="/app/carer/portal/saved-jobs"
+                                    class="px-4 py-2 text-sm text-slate-700 flex items-center space-x-2"
+                                    role="menuitem"
+                                    tabindex="-1"
+                                    id="user-menu-item-0"
+                                    @click="userMenuOpen = !userMenuOpen"
+                                >
+                                    <Icon
+                                        name="bi:bookmark-fill"
+                                        class="w-5 h-5"
+                                    />
+                                    <span>Saved Jobs</span></nuxt-link
                                 >
 
                                 <!-- <nuxt-link
@@ -290,7 +297,7 @@ watchEffect(() => {
                                 > -->
 
                                 <button
-                                    class="block px-4 py-2 text-sm text-red-700 flex items-center space-x-2"
+                                    class="px-4 py-2 text-sm text-red-700 flex items-center space-x-2"
                                     role="menuitem"
                                     tabindex="-1"
                                     id="user-menu-item-2"

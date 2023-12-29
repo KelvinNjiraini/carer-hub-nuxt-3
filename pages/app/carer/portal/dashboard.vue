@@ -73,13 +73,19 @@ const dummyJobs: JobType[] = [
 ];
 </script>
 <template>
-    <div class="w-full">
+    <div class="w-full space-y-5">
+        <div class="">
+            <span
+                >Showing results for
+                <strong>{{ dummyJobs.length }}</strong> jobs</span
+            >
+        </div>
         <div
             v-for="job in dummyJobs"
             :key="job.id"
             class="flex flex-col w-full space-y-4"
         >
-            <JobItem :job-data="job" />
+            <JobItem :job-data="job" :is-saved="false" />
         </div>
     </div>
 </template>
