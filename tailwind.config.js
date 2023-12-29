@@ -12,6 +12,7 @@ export default {
         extend: {
             colors: {
                 'color-blue': '#3081D0',
+                'color-green': '#527853',
             },
         },
     },
