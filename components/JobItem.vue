@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { type JobItem } from '~/types/JobItem';
 import { ref } from 'vue';
-const props = defineProps({
-    jobData: Object,
-    isSaved: Boolean,
-});
+const props = defineProps<{
+    jobData: JobItem;
+    isSaved: boolean;
+}>();
 const { jobData, isSaved } = props as { jobData: JobItem; isSaved: boolean };
 </script>
 <template>
     <div
-        class="max-w-2xl text-white p-4 rounded-md inline-block bg-gradient-to-tr from-color-blue to-cyan-500 relative"
+        class="max-w-2xl text-white p-4 rounded-md inline-block bg-gradient-to-tr from-blue-500 to-cyan-500 relative"
     >
         <div class="flex flex-col space-y-3 md:flex-row md:items-center">
             <Icon

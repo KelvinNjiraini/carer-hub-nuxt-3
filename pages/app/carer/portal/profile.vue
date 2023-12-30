@@ -45,7 +45,7 @@ definePageMeta({
 
             <div>
                 <button
-                    class="bg-color-blue hover:bg-color-blue/80 px-4 py-2 rounded-md text-white"
+                    class="bg-blue-500 hover:bg-blue-500/80 px-4 py-2 rounded-md text-white"
                 >
                     Save changes
                 </button>
